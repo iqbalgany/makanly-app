@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:recipe_app/core/themes/colors.dart';
+import 'package:recipe_app/presentations/pages/favorite_page.dart';
 import 'package:recipe_app/presentations/pages/home_page.dart';
 
 class AppMainPage extends StatefulWidget {
@@ -17,8 +18,8 @@ class _AppMainPageState extends State<AppMainPage> {
   void initState() {
     super.initState();
     page = [
-      HomePage(),
-      navBarPage(Iconsax.heart),
+      const HomePage(),
+      const FavoritePage(),
       navBarPage(Iconsax.calendar),
       navBarPage(Iconsax.setting),
     ];

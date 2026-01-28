@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:recipe_app/core/themes/colors.dart';
+import 'package:recipe_app/presentations/pages/view_all_items_page.dart';
 import 'package:recipe_app/presentations/widgets/banner.dart';
 import 'package:recipe_app/presentations/widgets/custom_icon_button.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -25,85 +26,100 @@ class _HomePageState extends State<HomePage> {
       .where('category', isEqualTo: category);
   Query get allRecipes => FirebaseFirestore.instance.collection('RecipeModel');
   Query get selectedRecipes => category == 'All' ? allRecipes : filteredRecipes;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                headerParts(), searchBar(),
-
-                /// for banner
-                BannerToExplore(),
-                Padding(
-                  padding: EdgeInsetsGeometry.symmetric(vertical: 20),
-                  child: Text(
-                    'Catgories',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
-                ),
-
-                /// for category
-                selectedCategory(),
-                SizedBox(height: 10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: Column(
+            children: [
+              SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'Quick & Easy',
-                      style: TextStyle(
-                        fontSize: 20,
-                        letterSpacing: 0.1,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    TextButton(
-                      onPressed: () {},
+                    headerParts(), searchBar(),
+
+                    /// for banner
+                    BannerToExplore(),
+                    Padding(
+                      padding: EdgeInsetsGeometry.symmetric(vertical: 20),
                       child: Text(
-                        'View all',
+                        'Catgories',
                         style: TextStyle(
-                          color: kBannerColor,
-                          fontWeight: FontWeight.w600,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
+                    ),
+
+                    /// for category
+                    selectedCategory(),
+                    SizedBox(height: 10),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Quick & Easy',
+                          style: TextStyle(
+                            fontSize: 20,
+                            letterSpacing: 0.1,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ViewAllItemsPage(),
+                              ),
+                            );
+                          },
+                          child: Text(
+                            'View all',
+                            style: TextStyle(
+                              color: kBannerColor,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
-
-                StreamBuilder(
-                  stream: selectedRecipes.snapshots(),
-                  builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
-                    if (snapshot.hasError) {
-                      return Center(child: Text('Error'));
-                    } else if (snapshot.hasData) {
-                      final List<DocumentSnapshot> recipes =
-                          snapshot.data?.docs ?? [];
-                      return Padding(
-                        padding: const EdgeInsets.only(top: 5, left: 15),
-                        child: SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: Row(
-                            children: recipes
-                                .map(
-                                  (e) => FoodItemsDisplay(
-                                    documentSnapshot:
-                                        e as DocumentSnapshot<Object>,
-                                  ),
-                                )
-                                .toList(),
-                          ),
+              ),
+              StreamBuilder(
+                stream: selectedRecipes.snapshots(),
+                builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                  if (snapshot.hasError) {
+                    return Center(child: Text('Error'));
+                  } else if (snapshot.hasData) {
+                    final List<DocumentSnapshot> recipes =
+                        snapshot.data?.docs ?? [];
+                    return Padding(
+                      padding: const EdgeInsets.only(top: 5, left: 15),
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          children: recipes
+                              .map(
+                                (e) => FoodItemsDisplay(
+                                  documentSnapshot:
+                                      e as DocumentSnapshot<Object>,
+                                ),
+                              )
+                              .toList(),
                         ),
-                      );
-                    }
-                    return Center(child: CircularProgressIndicator());
-                  },
-                ),
-              ],
-            ),
+                      ),
+                    );
+                  }
+                  return Center(child: CircularProgressIndicator());
+                },
+              ),
+            ],
           ),
         ),
       ),
