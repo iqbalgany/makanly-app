@@ -2,8 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
-import 'package:recipe_app/presentations/cubits/favorite/favorite_cubit.dart';
-import 'package:recipe_app/presentations/pages/recipe_detail_page.dart';
+import 'package:makanly/presentations/cubits/favorite/favorite_cubit.dart';
+import 'package:makanly/presentations/pages/recipe_detail_page.dart';
 
 class FoodItemsDisplay extends StatelessWidget {
   final DocumentSnapshot<Object?>? documentSnapshot;

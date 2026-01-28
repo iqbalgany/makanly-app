@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
-import 'package:recipe_app/core/themes/colors.dart';
-import 'package:recipe_app/presentations/pages/view_all_items_page.dart';
-import 'package:recipe_app/presentations/widgets/banner.dart';
-import 'package:recipe_app/presentations/widgets/custom_icon_button.dart';
+import 'package:makanly/core/themes/colors.dart';
+import 'package:makanly/presentations/pages/view_all_items_page.dart';
+import 'package:makanly/presentations/widgets/banner.dart';
+import 'package:makanly/presentations/widgets/custom_icon_button.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:recipe_app/presentations/widgets/food_items_display.dart';
+import 'package:makanly/presentations/widgets/food_items_display.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

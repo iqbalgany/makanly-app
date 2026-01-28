@@ -1,4 +1,4 @@
-# recipe_app
+# makanly
 
 A new Flutter project.
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/core/themes/colors.dart';
+import 'package:makanly/core/themes/colors.dart';
 
 class BannerToExplore extends StatelessWidget {
   const BannerToExplore({super.key});

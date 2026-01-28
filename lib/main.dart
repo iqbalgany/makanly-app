@@ -1,11 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:recipe_app/core/themes/colors.dart';
-import 'package:recipe_app/firebase_options.dart';
-import 'package:recipe_app/presentations/cubits/favorite/favorite_cubit.dart';
-import 'package:recipe_app/presentations/cubits/quantity/quantity_cubit.dart';
-import 'package:recipe_app/presentations/pages/app_main_page.dart';
+import 'package:makanly/core/themes/colors.dart';
+import 'package:makanly/firebase_options.dart';
+import 'package:makanly/presentations/cubits/favorite/favorite_cubit.dart';
+import 'package:makanly/presentations/cubits/quantity/quantity_cubit.dart';
+import 'package:makanly/presentations/pages/app_main_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

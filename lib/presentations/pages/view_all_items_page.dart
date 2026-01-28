@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
-import 'package:recipe_app/core/themes/colors.dart';
-import 'package:recipe_app/presentations/widgets/custom_icon_button.dart';
-import 'package:recipe_app/presentations/widgets/food_items_display.dart';
+import 'package:makanly/core/themes/colors.dart';
+import 'package:makanly/presentations/widgets/custom_icon_button.dart';
+import 'package:makanly/presentations/widgets/food_items_display.dart';
 
 class ViewAllItemsPage extends StatefulWidget {
   const ViewAllItemsPage({super.key});

@@ -1,6 +1,6 @@
 {
-    "name": "recipe_app",
-    "short_name": "recipe_app",
+    "name": "makanly",
+    "short_name": "makanly",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

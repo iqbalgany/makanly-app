@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
-import 'package:recipe_app/core/themes/colors.dart';
-import 'package:recipe_app/presentations/pages/favorite_page.dart';
-import 'package:recipe_app/presentations/pages/home_page.dart';
+import 'package:makanly/core/themes/colors.dart';
+import 'package:makanly/presentations/pages/favorite_page.dart';
+import 'package:makanly/presentations/pages/home_page.dart';
 
 class AppMainPage extends StatefulWidget {
   const AppMainPage({super.key});
